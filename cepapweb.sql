@@ -1,8 +1,32 @@
-CREATE DATABASE cepapweb;
-USE cepapweb;
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 14-09-2023 a las 07:25:56
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `cepapweb`
+--
+
+-- --------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `admisiones`
 --
+
 CREATE TABLE `admisiones` (
   `id` int(50) NOT NULL,
   `nombre` varchar(60) NOT NULL,
@@ -11,18 +35,20 @@ CREATE TABLE `admisiones` (
   `email` varchar(100) NOT NULL,
   `telefono` int(25) NOT NULL,
   `username` varchar(25) NOT NULL,
-  `detalles` varchar(70) NOT NULL
+  `detalles` varchar(70) NOT NULL,
+  `status` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `admisiones`
 --
 
-INSERT INTO `admisiones` (`id`, `nombre`, `apellidopaterno`, `apellidomaterno`, `email`, `telefono`, `username`, `detalles`) VALUES
-(9, 'Ana Diana', 'Serna', 'Romo', 'diana@romo.com', 12121212, 'diana', '3'),
-(10, 'Lucy', 'Sanchez', 'Munoz', 'lucy@samun.com', 9999999, 'lucy', '4'),
-(11, 'Ana', 'Ruiz', 'Diaz', 'ana@gmail.com', 2147483647, 'ana', '3'),
-(12, 'asfasf', 'safas', 'safaf', 'safaf@cfg.g', 1111111, '11111', '4');
+INSERT INTO `admisiones` (`id`, `nombre`, `apellidopaterno`, `apellidomaterno`, `email`, `telefono`, `username`, `detalles`, `status`) VALUES
+(9, 'Ana Diana', 'Serna', 'Romo', 'diana@romo.com', 12121212, 'diana', '3', 0),
+(10, 'Lucy', 'Sanchez', 'Munoz', 'lucy@samun.com', 9999999, 'lucy', '4', 0),
+(11, 'Ana', 'Ruiz', 'Diaz', 'ana@gmail.com', 2147483647, 'ana', '3', 0),
+(12, 'asfasf', 'safas', 'safaf', 'safaf@cfg.g', 1111111, '11111', '4', 0),
+(15, 'sebas', 'sebas', 'sebas', 'aasasasdds@gmail.com', 2147483647, 'sebabas', '3', 0);
 
 -- --------------------------------------------------------
 
@@ -130,7 +156,10 @@ INSERT INTO `informacion` (`id`, `username`, `estado`, `pais`, `instituto`, `gra
 (5, 'diana', '', '', '', '', '', '', '', '', 0),
 (6, 'lucy', 'Aguascalientes', 'Andorra', 'RED', 'Ingenieria', 'En proceso', '58683686', 'DIseño', '2023-03-01', 1),
 (7, 'ana', '', '', 'asasf', 'Licenciatura', 'En proceso', 'asfaf', 'asfa', '2023-03-13', 1),
-(8, '11111', '', '', '', '', '', '', '', '', 0);
+(8, '11111', '', '', '', '', '', '', '', '', 0),
+(9, 'sebas', '', '', '', '', '', '', '', '', 0),
+(10, 'asdasd', '', '', '', '', '', '', '', '', 0),
+(11, 'sebabas', '', '', '', '', '', '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -218,7 +247,10 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellidopaterno`, `apellidomaterno`, `u
 (15, 'Diana', 'Serna', 'Romo', 'diana', 'diana', 4),
 (16, 'Lucy', 'Sanchez', 'Munoz', 'lucy', 'lucy', 4),
 (17, 'Ana', 'Ruiz', 'Diaz', 'ana', 'ana', 4),
-(18, 'asfasf', 'safas', 'safaf', '11111', '1111', 4);
+(18, 'asfasf', 'safas', 'safaf', '11111', '1111', 4),
+(19, 'sebabas', 'asdasd', 'asdasda', 'sebas', 'sebas', 3),
+(20, 'wwqrw', 'asdasd', 'sadas', 'asdasd', 'sadasd', 3),
+(21, 'sebas', 'sebas', 'sebas', 'sebabas', 'asdasd', 3);
 
 --
 -- Índices para tablas volcadas
@@ -295,7 +327,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `admisiones`
 --
 ALTER TABLE `admisiones`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `articulos`
@@ -325,7 +357,7 @@ ALTER TABLE `convocatorias`
 -- AUTO_INCREMENT de la tabla `informacion`
 --
 ALTER TABLE `informacion`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `investigaciones`
@@ -349,4 +381,9 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

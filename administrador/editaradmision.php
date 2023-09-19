@@ -85,8 +85,20 @@
                                         <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Teléfono"
                                         value="<?= $registro['telefono']; ?>">
                                     </div>
-                                </div>
-   
+                                </div> 
+                                
+                                <div style="margin-bottom:15px" class="col-12 form-floating">
+                                <select class="form-select" name="status" id="floatingSelect status" required autocomplete="off">
+                                    <option selected disabled>Seleccione una opción</option>
+                                    <option value="0">Nuevo</option>
+                                    <option value="1">Contactado</option>
+                                    <option value="2">En proceso</option>
+                                    <option value="3">Inscrito</option>
+                                    <option value="4">Finalizado</option>
+                                    <option value="5">Sin respuesta</option>
+                                </select>
+                                <label for="floatingSelect">Estatus</label>
+                            </div>
                                 <div class="col-12 text-center mt-2 mb-2">
                                     <button type="submit" name="update" class="btn btn-warning">
                                         Actualizar usuario

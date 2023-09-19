@@ -13,6 +13,7 @@ if(isset($_POST['save']))
 	$email = mysqli_real_escape_string($con, $_POST['email']);
 	$telefono = mysqli_real_escape_string($con, $_POST['telefono']);
 	$detalles = mysqli_real_escape_string($con, $_POST['detalles']);
+	$status = mysqli_real_escape_string($con, $_POST['Estayus']);
 	$asunto = 'ADMISION';
 	$mensaje = "Nombre: ".$nombre. " " .$apellidomaterno. " " .$apellidopaterno. " Email: " .$email." Telefono: ".$telefono." Username: ".$username." Detalles: ".$detalles."". $_POST['mensaje'];
 

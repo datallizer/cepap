@@ -93,6 +93,29 @@
                                           }
                                           ?>" disabled>
                                     </div>
+                                    <!-- Estatus --> 
+                                    <div class="col-7 mtop" >
+                                    <label for="status" class="form-label">Estatus</label>
+                                    
+                                    <input type="text" class="form-control" name="status" id="status" value="<?php 
+                                        if ( $registro['status'] === "0") {
+                                            echo"Nuevo";
+                                          } else if ($registro['status'] === "1") {
+                                            echo"Contactado";
+                                          } else if ($registro['status'] === "2"){
+                                            echo"En proceso";
+                                        } else if ($registro['status'] === "3"){
+                                            echo"Inscrito";
+                                        } else if ($registro['status'] === "4"){
+                                            echo"Finalizado";
+                                        } else if ($registro['status'] === "5"){
+                                            echo"Sin respuesta";
+                                          } else {
+                                            
+                                          }
+                                          ?>" disabled>
+                                    </div>
+
                                 </div>
    
         </div>
