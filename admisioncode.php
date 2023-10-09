@@ -13,7 +13,7 @@ if(isset($_POST['save']))
 	$email = mysqli_real_escape_string($con, $_POST['email']);
 	$telefono = mysqli_real_escape_string($con, $_POST['telefono']);
 	$detalles = mysqli_real_escape_string($con, $_POST['detalles']);
-	$status = mysqli_real_escape_string($con, $_POST['Estayus']);
+	$status = mysqli_real_escape_string($con, $_POST['status']);
 	$asunto = 'ADMISION';
 	$mensaje = "Nombre: ".$nombre. " " .$apellidomaterno. " " .$apellidopaterno. " Email: " .$email." Telefono: ".$telefono." Username: ".$username." Detalles: ".$detalles."". $_POST['mensaje'];
 
@@ -23,7 +23,7 @@ if(isset($_POST['save']))
 	 	echo "Correo enviado";
 	 }
 
-    $query = "INSERT INTO admisiones SET nombre='$nombre', apellidopaterno='$apellidopaterno', apellidomaterno='$apellidomaterno', username='$username', email='$email', telefono='$telefono', detalles='$detalles' ";
+    $query = "INSERT INTO admisiones SET nombre='$nombre', apellidopaterno='$apellidopaterno', apellidomaterno='$apellidomaterno', username='$username', email='$email', telefono='$telefono', detalles='$detalles', status='$status' ";
 
     $query_run = mysqli_query($con, $query);
     if($query_run)

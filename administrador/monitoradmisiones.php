@@ -106,7 +106,7 @@ require '../dbcon.php';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="../admisioncode.php" method="post">
+                    <form action="codeadmision.php" method="post">
                         <div class="row justify-content-center">
                             <div class="col-12 form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput nombre" name="nombre" required autocomplete="off" pattern="[a-zA-Z\s]{1-50}" placeholder="">
