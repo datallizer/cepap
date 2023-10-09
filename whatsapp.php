@@ -19,7 +19,7 @@
                       <i class="material-icons icon-font-color">close</i>
                     </button> 
                   
-                   <p>  <img src="images/secretary.png" style="width:65px;margin-right:10px;"> ¿En que podemos ayudarte? </p>
+                   <p>  <img src="images/secretary.png" style="width:65px;margin-right:10px;"> ¿En qué podemos ayudarte? </p>
                    
                 </div>
                 <div class="content-whatsapp -bottom">

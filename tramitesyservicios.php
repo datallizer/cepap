@@ -28,11 +28,11 @@
   <div id="tramites" class="row justify-content-center align-items-center tramitescbi">
     <div class="col-10 col-md-5">
       <h2>TRÁMITES</h2>
-      <p>Realiza los siguientes pasos para cualquiera de los tramites que tenemos disponibles para ti</p>
+      <p>Realiza los siguientes pasos para cualquiera de los trámites que tenemos disponibles para ti</p>
       <p><i class="bi bi-1-circle-fill"></i> Realiza tu pago en caso de que vayas a solicitar una constancia de estudios</p>
       <p><i class="bi bi-2-circle-fill"></i> Llena el formulario correspondiente</p>
       <p><i class="bi bi-3-circle-fill"></i> Serás redirigido a la aplicación de whatsapp</p>
-      <p><i class="bi bi-4-circle-fill"></i> Envia el mensaje que se autocompletara en la aplicación</p>
+      <p><i class="bi bi-4-circle-fill"></i> Envía el mensaje que se autocompletara en la aplicación</p>
     </div>
     <div class="col-10 col-md-5 formulariostramites">
     <div class="accordion" id="accordionExample">

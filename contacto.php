@@ -64,7 +64,7 @@
 
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"><b>Isreal de Luna</b></h5>
+                            <h5 class="card-title"><b>Mtro. Isreal de Luna</b></h5>
                             <p class="card-text" style="margin-top:0px;font-size:12px;margin-bottom:10px"><b>Rector</b></p>
                             <p class="card-text">israel.deluna@cepap.mx</p>
                             <p class="card-text"><small style="color:#ffffff !important;" class="text-muted">449 547 6518</small></p>
@@ -120,7 +120,7 @@
 
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"><b>Dra. María del Socorro Vallan Contreras</b></h5>
+                            <h5 class="card-title"><b>Dra. María del Socorro Vallín Contreras</b></h5>
                             <p class="card-text" style="margin-top:0px;font-size:12px;margin-bottom:10px"><b>Socia Fundadora</b></p>
                             <p class="card-text"><small style="color:#ffffff !important;" class="text-muted">449 547 6518</small></p>
                         </div>

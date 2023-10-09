@@ -19,7 +19,7 @@
 <div class="row rector justify-content-center align-items-center">
         <div class="col-10 rectortxt">
             <h2>NUESTRO RECTOR</h2>
-            <p>Escucha el mensaje de bienvenida de parte de nuestro rector el Lic. Israel de Luna así como el impacto social, educativo y empresarial que tiene el centro de especialización en procesos para el aprendizaje para ti.</p>
+            <p>Escucha el mensaje de bienvenida de parte de nuestro rector el Mtro. Israel de Luna así como el impacto social, educativo y empresarial que tiene el centro de especialización en procesos para el aprendizaje para ti.</p>
         </div>
 
         <div class="col-md-9 col-10">

@@ -56,7 +56,7 @@
           <a class="nav-item nav-link" href="contacto.php">Contacto</a>
         </div>
       
-        <a class="btn btn-sm btn-outline-light loginbtn" href="login.php">Iniciar sesion</a>
+        <a class="btn btn-sm btn-outline-light loginbtn" href="login.php">Iniciar sesión</a>
 
     </div>
   </div>

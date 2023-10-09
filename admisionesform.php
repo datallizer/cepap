@@ -1,7 +1,7 @@
 <div class="row admisiones justify-content-center">
   <div class="col-10 text-center" style="margin-bottom:30px;">
     <h2>ADMISIONES</h2>
-    <p>Regístrate en el siguiente formulario para iniciar con tu proceso de admision</p>
+    <p>Regístrate en el siguiente formulario para iniciar con tu proceso de admisión</p>
   </div>
   <div class="col-11 col-md-5">
     <form action="admisioncode.php" method="post">

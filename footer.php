@@ -2,7 +2,7 @@
     <div class="row justify-content-center footer">
         <div class="col-11 col-md-3">
             <ul>
-                <li><b>Acceso rapido</b></li>
+                <li><b>Acceso rápido</b></li>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="nosotros.php">Nosotros</a></li>
                 <li><a href="ofertaeducativa.php">Oferta educativa</a></li>
@@ -13,7 +13,7 @@
                 <li><b>Gaceta</b></li>
                 <li><a href="podcast.php">Podcast</a></li>
                 <li><a href="noticias.php">Noticias</a></li>
-                <li><a href="articulos.php">Articulos</a></li>
+                <li><a href="articulos.php">Artículos</a></li>
                 <li><a href="convocatorias.php">Convocatorias</a></li>
                 <li><a href="galeria.php">Galería</a></li>
             </ul>
@@ -53,7 +53,7 @@
         </div>
 
         <div class="col-10 col-md-3">
-            <p><b>Dirección</b><br><a href="">Blvd. Abelardo L Rodríguez 908 Local 7, Puesta del Sol 20326 Aguascalientes, México</a></p>
+            <p><b>Dirección</b><br><a href="">Blvd. Abelardo L Rodríguez 908 Primer piso, Puesta del Sol 20326 Aguascalientes, México</a></p>
             <p><b>Correo</b><br><a href="mailto:admisiones@cepap.mx">admisiones@cepap.mx</a></p>
             <p><b>Teléfono</b><br><a href="tel:4495476518">449 547 6518</a></p>
         </div>

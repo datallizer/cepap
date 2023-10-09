@@ -46,7 +46,7 @@
             <p>- Fin de aprendizaje</p>
             <p>- Perfil de egreso</p>
             <p>- Programa de investigación</p>
-            <p>- Curso propedeutico</p>
+            <p>- Curso propedéutico</p>
             <p>- Perfil de ingreso</p>
             <p>- Administración y operatividad</p>
             <p>- Sustento teórico del modelo curricular</p>
