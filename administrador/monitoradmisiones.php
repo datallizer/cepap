@@ -69,8 +69,27 @@ require '../dbcon.php';
                                             <td><?= $registro['username']; ?></td>
                                             <td><?= $registro['telefono']; ?></td>
                                             <td><?= $registro['email']; ?></td>
-                                            <td><?= $registro['status']; ?></td>
-                                          
+
+                                            <td>
+                                                <?php
+                                                if ($registro['status'] === '0') {
+                                                    echo "Nuevo";
+                                                } else if ($registro['status'] === '1') {
+                                                    echo "Contactado";
+                                                } else if ($registro['status'] === '2') {
+                                                    echo "En proceso";
+                                                } else if ($registro['status'] === '3') {
+                                                    echo "Inscrito";
+                                                } else if ($registro['status'] === '4') {
+                                                    echo "Finalizado";
+                                                } else if ($registro['status'] === '5') {
+                                                    echo "Sin respuesta";
+                                                } else {
+                                                    echo "Error, asigne un estatus actual";
+                                                }
+                                                ?>
+                                            </td>
+
                                             <td>
                                                 <a href="veradmision.php?id=<?= $registro['id']; ?>" class="btn btn-info btn-sm">Ver</a>
 
@@ -129,9 +148,25 @@ require '../dbcon.php';
                             </div>
 
                             <div class="col-12 form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput telefono" name="telefono" required autocomplete="off" placeholder="">
+                                <input type="text" class="form-control" id="floatingInput" name="telefono" required autocomplete="off" placeholder="Teléfono" maxlength="10">
                                 <label for="floatingInput">Teléfono</label>
                             </div>
+
+                            <script>
+                                // Obtener el elemento de entrada por su ID
+                                var inputTelefono = document.getElementById("floatingInput");
+
+                                // Agregar un listener para el evento "input"
+                                inputTelefono.addEventListener("input", function() {
+                                    // Reemplazar cualquier caracter que no sea un número con una cadena vacía
+                                    this.value = this.value.replace(/[^0-9]/g, "");
+
+                                    // Limitar la longitud a 10 dígitos
+                                    if (this.value.length > 10) {
+                                        this.value = this.value.slice(0, 10);
+                                    }
+                                });
+                            </script>
 
                             <div class="input-group col-12 form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput username" name="username" required autocomplete="off" pattern="[a-zA-Z\s]{1-50}" placeholder="">
@@ -151,7 +186,7 @@ require '../dbcon.php';
                                 <input type="password" class="form-control" id="floatingInput password" name="password" required autocomplete="off" placeholder="Contraseña">
                                 <label for="floatingInput">Contraseña</label>
                             </div>
-                                <!-- Campo estatus -->
+                            <!-- Campo estatus -->
                             <div style="margin-bottom:15px" class="col-12 form-floating">
                                 <select class="form-select" name="status" id="floatingSelect status" required autocomplete="off">
                                     <option selected disabled>Seleccione una opción</option>
@@ -176,10 +211,10 @@ require '../dbcon.php';
             </div>
         </div>
     </div>
-<!--script modal-->
+    <!--script modal-->
     <script>
-    var status = document.getElementById("status");
-    </script>      
+        var status = document.getElementById("status");
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="js/js.js"></script>
     <script src="js/fslightbox.js"></script>

@@ -76,8 +76,22 @@
                                     </div>
 
                                     <div class="col-7">
-                                        <select class="form-select" name="rol_id" id="rol_id">
-                                            <option selected disabled>Seleccione un rol</option>
+                                        <select class="form-select" name="rol_id" id="rol_id"  autocomplete="off" required>
+                                            <option selected disabled><?php
+                                                if ( $registro['rol_id'] === "1") {
+                                                    echo"Administrador";
+                                                  } else if ($registro['rol_id'] === "2") {
+                                                    echo"Control escolar";
+                                                  } else if ($registro['rol_id'] === "3") {
+                                                    echo"Alumno maestría en educacion";
+                                                  } else if ($registro['rol_id'] === "4") {
+                                                    echo"Alumno especialidad en docencia";
+                                                  } else if ($registro['rol_id'] === "5") {
+                                                    echo"Profesor";
+                                                  } else {
+                                                  }
+                                                  ?>    
+                                                </option>
                                             <option value="1">Administrador</option>
                                             <option value="2">Control escolar</option>
                                             <option value="3">Alumno maestría en educacion</option>

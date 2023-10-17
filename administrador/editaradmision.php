@@ -89,7 +89,23 @@
                                 
                                 <div style="margin-bottom:15px" class="col-12 form-floating">
                                 <select class="form-select" name="status" id="floatingSelect status" required autocomplete="off">
-                                    <option selected disabled>Seleccione una opción</option>
+                                    <option selected disabled><?php
+                                                if ($registro['status'] === '0') {
+                                                    echo "Nuevo";
+                                                } else if ($registro['status'] === '1') {
+                                                    echo "Contactado";
+                                                } else if ($registro['status'] === '2') {
+                                                    echo "En proceso";
+                                                } else if ($registro['status'] === '3') {
+                                                    echo "Inscrito";
+                                                } else if ($registro['status'] === '4') {
+                                                    echo "Finalizado";
+                                                } else if ($registro['status'] === '5') {
+                                                    echo "Sin respuesta";
+                                                } else {
+                                                    echo "Error, asigne un estatus actual";
+                                                }
+                                                ?></option>
                                     <option value="0">Nuevo</option>
                                     <option value="1">Contactado</option>
                                     <option value="2">En proceso</option>
@@ -97,6 +113,7 @@
                                     <option value="4">Finalizado</option>
                                     <option value="5">Sin respuesta</option>
                                 </select>
+                                
                                 <label for="floatingSelect">Estatus</label>
                             </div>
                                 <div class="col-12 text-center mt-2 mb-2">
