@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
-/* offset-x > | offset-y ^| blur-radius | spread-radius | color */
+
 @keyframes pulse {
   0% {
     transform: scale(1, 1);
@@ -52,10 +51,7 @@
   cursor: pointer;
   border-radius: 50%;
   background-color: white;
-  /* offset-x > | offset-y ^| blur-radius | spread-radius | color */
-  -webkit-box-shadow: 1px 1px 6px 0px rgba(68, 68, 68, 0.705);
-  -moz-box-shadow: 1px 1px 6px 0px rgba(68, 68, 68, 0.705);
-  box-shadow: 1px 1px 6px 0px rgba(68, 68, 68, 0.705);
+
 }
 
 .circle-anime {
@@ -87,10 +83,6 @@
   transition: .5s;
   border-radius: 10px;
   background-color: white;
-  /* offset-x > | offset-y ^| blur-radius | spread-radius | color */
-  -webkit-box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
-  -moz-box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
-  box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
   animation: slideInRight .6s 0.0s both;
 }
 .popup-whatsapp > div {
@@ -128,9 +120,6 @@
   outline: none;
   cursor: pointer;
   background-color: #4cc370;
-  -webkit-box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
-  -moz-box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
-  box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
 }
 .closePopup:hover {
   background-color: #3d9e5a;
@@ -149,9 +138,6 @@
   border: none;
   outline: none;
   cursor: pointer;
-  -webkit-box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
-  -moz-box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
-  box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
 }
 .send-msPopup:hover {
   background-color: #f8f8f8;
@@ -162,6 +148,7 @@
   display: flex;
   animation: slideInRight .6s 0.0s both;
   background-color: #fafafa;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.484);
 }
 
 input.whats-input[type=text] {

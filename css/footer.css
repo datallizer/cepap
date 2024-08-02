@@ -27,6 +27,10 @@ li{
     width: 60%;
 }
 
+.socail a, .social i{
+    color: #ffffff !important;
+}
+
 @media screen and (max-width:1000px){
     .logosocial{
         margin-bottom: 50px;

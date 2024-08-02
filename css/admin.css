@@ -1,31 +1,38 @@
-.margintop{
-    margin-top: 25px;
+.dashboardrow h3{
+    font-size: 18px;
+    font-weight: 500;
 }
 
-.mtop input, .mtop select{
-    margin-bottom: 15px;
+.dashboardrow p{
+    font-size: 30px;
 }
 
-.card{
-    margin-top: 25px !important;
+.dashboardcard{
+    border-radius: 5px;
+    margin: 0px 5px !important;
+    padding: 15px;
+    background-color: #164187;
+    color: #fff;
 }
 
-.spfile{
-    margin-bottom: 15px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+/* Margen para el elemento "Show entries" */
+.dataTables_length {
+    margin-bottom: 18px !important;
 }
 
-.dcard{
-    min-height: 200px;
-    border:  1px;
-    background-color: #f7f7f7;
+/* Margen para el elemento "Search" */
+.dataTables_filter {
+    margin-bottom: 18px !important;
+}
+.card-header{
+    padding-top: 10px !important;
+    background-color: #222222 !important;
+    color: #ffffff !important;
+}
+.dataTable{
+    border-top: 1px solid #c7c7c7 !important;
 }
 
-.margenbajo{
-    margin-bottom: 50px;
-}
-
-.dashlink{
-    color: #000000;
+label{
+    margin-left: 10px;
 }

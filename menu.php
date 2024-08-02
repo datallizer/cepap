@@ -19,7 +19,7 @@
         <div class="navbar-nav mx-lg-auto">
           <a class="nav-item nav-link" href="index.php">Inicio</a>
           <a class="nav-item nav-link" href="nosotros.php">Nosotros</a>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" onmouseenter="abrirMenuDesplegable()" onmouseleave="cerrarMenuDesplegable()">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Oferta educativa
           </a>
@@ -33,11 +33,11 @@
             <li><a class="dropdown-item" href="ofertaeducativa.php#modeloeducativo">Modelo educativo</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" onmouseenter="abrirMenuDesplegableDos()" onmouseleave="cerrarMenuDesplegableDos()">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Trámites y servicios
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-menuDos">
             <li><a class="dropdown-item" href="tramitesyservicios.php#becas">Becas</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="tramitesyservicios.php#calendario">Calendario académico</a></li>

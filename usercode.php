@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../dbcon.php';
+require 'dbcon.php';
 
 if(isset($_POST['delete']))
 {
@@ -31,8 +31,9 @@ if(isset($_POST['update']))
     $apellidomaterno = mysqli_real_escape_string($con, $_POST['apellidomaterno']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $rol_id = mysqli_real_escape_string($con, $_POST['rol_id']);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "UPDATE `usuarios` SET `nombre` = '$nombre', `apellidopaterno` = '$apellidopaterno', `apellidomaterno` = '$apellidomaterno', `password` = '$password', `rol_id` = '$rol_id' WHERE `usuarios`.`id` = '$id'";
+    $query = "UPDATE `usuarios` SET `nombre` = '$nombre', `apellidopaterno` = '$apellidopaterno', `apellidomaterno` = '$apellidomaterno', `password` = '$hashed_password', `rol_id` = '$rol_id' WHERE `usuarios`.`id` = '$id'";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
@@ -59,8 +60,9 @@ if(isset($_POST['save']))
     $username = mysqli_real_escape_string($con, $_POST['username']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $rol_id = mysqli_real_escape_string($con, $_POST['rol_id']);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO usuarios SET nombre='$nombre', apellidopaterno='$apellidopaterno', apellidomaterno='$apellidomaterno', username='$username', password='$password', rol_id='$rol_id'";
+    $query = "INSERT INTO usuarios SET nombre='$nombre', apellidopaterno='$apellidopaterno', apellidomaterno='$apellidomaterno', username='$username', password='$hashed_password', rol_id='$rol_id'";
 
     $query_run = mysqli_query($con, $query);
     if($query_run)

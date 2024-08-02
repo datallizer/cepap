@@ -21,10 +21,8 @@ popupWhatsApp = () => {
    window.open('https://wa.me/524495476518?text='+relmsg, '_blank'); 
   
   });
-
-  setTimeout(() => {
-    popup.classList.toggle('is-active-whatsapp-popup');
-  }, 3000);
+  
+    
 }
 
 popupWhatsApp();
