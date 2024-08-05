@@ -27,18 +27,18 @@
         </div>
 
         <div class="col-4 form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput telefono" name="telefono" required autocomplete="off" placeholder="">
+          <input type="text" class="form-control" id="floatingInput telefono" name="telefono" required autocomplete="off" placeholder="" minlength="10" maxlength="10" pattern="^[0-9]+">
           <label for="floatingInput">Teléfono</label>
         </div>
 
 
         <div style="margin-bottom:15px" class="col-8 form-floating">
-        <select class="form-select" name="detalles" id="floatingSelect detalles" required autocomplete="off">
-          <option selected disabled>Seleccione una opción</option>
-          <option value="3">Maestría en educación</option>
-          <option value="4">Especialidad en docencía</option>
-        </select>
-        <label for="floatingSelect">Admision para</label>
+          <select class="form-select" name="detalles" id="floatingSelect" required autocomplete="off">
+            <option selected disabled>Seleccione una opción</option>
+            <option value="3">Maestría en educación</option>
+            <option value="4">Especialidad en docencía</option>
+          </select>
+          <label for="floatingSelect">Admision para</label>
         </div>
 
         <div class="col-2 mt-3">
@@ -48,4 +48,4 @@
       </div>
     </form>
   </div>
-</div> 
+</div>

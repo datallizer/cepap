@@ -37,7 +37,7 @@
                 </h4>
             </div>
             <div class="card-body">
-            <?php include 'message.php'; ?>
+            
                 <table class="table table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>

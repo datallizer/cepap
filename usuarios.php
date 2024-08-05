@@ -1,10 +1,9 @@
 <?php
 session_start();
 require 'dbcon.php';
-$message = isset($_SESSION['message']) ? $_SESSION['message'] : ''; // Obtener el mensaje de la sesión
+$message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
 
 if (!empty($message)) {
-    // HTML y JavaScript para mostrar la alerta...
     echo "<script>
             document.addEventListener('DOMContentLoaded', function() {
                 const message = " . json_encode($message) . ";
@@ -20,29 +19,26 @@ if (!empty($message)) {
                 });
             });
         </script>";
-    unset($_SESSION['message']); // Limpiar el mensaje de la sesión
+    unset($_SESSION['message']); 
 }
 
-//Verificar si existe una sesión activa y los valores de usuario y contraseña están establecidos
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
 
-    // Consultar la base de datos para verificar si los valores coinciden con algún registro en la tabla de usuarios
     $query = "SELECT * FROM usuarios WHERE username = '$username'";
     $result = mysqli_query($con, $query);
 
-    // Si se encuentra un registro coincidente, el usuario está autorizado
     if (mysqli_num_rows($result) > 0) {
-        // El usuario está autorizado, se puede acceder al contenido
+        $_SESSION['message'] = "Bienvenido";
     } else {
-        // Redirigir al usuario a una página de inicio de sesión
+        $_SESSION['message'] = "Contraseña incorrecta";
         header('Location: login.php');
-        exit(); // Finalizar el script después de la redirección
+        exit();
     }
 } else {
-    // Redirigir al usuario a una página de inicio de sesión si no hay una sesión activa
+    $_SESSION['message'] = "El usuario ingresado no existe";
     header('Location: login.php');
-    exit(); // Finalizar el script después de la redirección
+    exit(); 
 }
 ?>
 <!DOCTYPE html>
@@ -77,7 +73,6 @@ if (isset($_SESSION['username'])) {
                         </h4>
                     </div>
                     <div class="card-body" style="overflow-y:scroll;">
-                        <?php include('message.php'); ?>
                         <table id="miTabla" class="table table-bordered table-striped" style="width: 100%;">
                             <thead>
                                 <tr>
@@ -154,42 +149,46 @@ if (isset($_SESSION['username'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="usercode.php" method="POST">
-                        <div class="row">
-                            <div class="col-12 mtop">
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" autocomplete="off" required>
+                    <form class="row" action="usercode.php" method="POST">
+                            <div class="form-floating mb-3 col-12">
+                                <input type="text" class="form-control" name="nombre" id="floatingInput" placeholder="Nombre" autocomplete="off" required>
+                                <label for="floatingInput">Nombre</label>
                             </div>
 
-                            <div class="col-6 mtop">
-                                <input type="text" class="form-control" name="apellidopaterno" id="apellidopaterno" placeholder="Apellido paterno" autocomplete="off" required>
+                            <div class="form-floating mb-3 col-12 col-md-6">
+                                <input type="text" class="form-control" name="apellidopaterno" id="floatingInput" placeholder="Apellido paterno" autocomplete="off" required>
+                                <label for="floatingInput">Apellido paterno</label>
                             </div>
 
-                            <div class="col-6 mtop">
-                                <input type="text" class="form-control" name="apellidomaterno" id="apellidomaterno" placeholder="Apellido materno" autocomplete="off" required>
+                            <div class="form-floating mb-3 col-12 col-md-6">
+                                <input type="text" class="form-control" name="apellidomaterno" id="floatingInput" placeholder="Apellido materno" autocomplete="off" required>
+                                <label for="floatingInput">Apellido materno</label>
                             </div>
 
-                            <div class="col-5 mtop">
-                                <input type="text" class="form-control" name="username" id="username" placeholder="Nombre de usuario" autocomplete="off" required>
+                            <div class="form-floating mb-3 col-12">
+                                <input type="email" class="form-control" name="username" id="floatingInput" placeholder="Correo" autocomplete="off" required>
+                                <label for="floatingInput">Correo</label>
                             </div>
 
-                            <div class="col-7 mtop">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" required>
+                            <div class="form-floating mb-3 col-12">
+                                <input type="text" class="form-control" name="password" id="floatingInput" placeholder="Password" autocomplete="off" required minlength="10" maxlength="10">
+                                <label for="floatingInput">Teléfono</label>
                             </div>
 
-                            <div class="col-12 mtop">
+                            <div class="form-floating mb-3 col-12">
                                 <select class="form-select" name="rol_id" id="rol_id" autocomplete="off" required>
-                                    <option disabled>Categoría</option>
+                                    <option selected disabled>Selecciona una opción</option>
                                     <option value="1">Administrador</option>
                                     <option value="2">Control escolar</option>
                                     <!-- <option value="3">Alumno maestría en educacion</option>
                                     <option value="4">Alumno especialidad en docencia</option> -->
                                     <option value="5">Profesor</option>
                                 </select>
+                                <label for="floatingInput">Rol</label>
                             </div>
                         </div>
 
-
-                </div>
+            
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-primary" name="save">Guardar</button>

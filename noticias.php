@@ -17,6 +17,10 @@ require 'dbcon.php';
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0" nonce="1tO5xGiO"></script>
+
+<?php include 'whatsapp.php'; ?>   
     <?php include 'menu.php'; ?>
 
     <div class="container-fluid">

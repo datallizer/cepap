@@ -2,6 +2,11 @@
 session_start();
 require 'dbcon.php';
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
 if(isset($_POST['delete']))
 {
     $registro_id = mysqli_real_escape_string($con, $_POST['delete']);
@@ -52,22 +57,36 @@ if(isset($_POST['update']))
 }
 
 
-if(isset($_POST['save']))
-{
+if(isset($_POST['save'])){
+    require 'PHPMailer/src/PHPMailer.php';
+    require 'PHPMailer/src/SMTP.php';
+    require 'PHPMailer/src/Exception.php';
     $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
     $apellidopaterno = mysqli_real_escape_string($con, $_POST['apellidopaterno']);
     $apellidomaterno = mysqli_real_escape_string($con, $_POST['apellidomaterno']);
     $username = mysqli_real_escape_string($con, $_POST['username']);
-	$email = mysqli_real_escape_string($con, $_POST['email']);
 	$telefono = mysqli_real_escape_string($con, $_POST['telefono']);
 	$detalles = mysqli_real_escape_string($con, $_POST['detalles']);
-	$status = mysqli_real_escape_string($con, $_POST['status']);
+	$status = '1';
+
+    $check_email_query = "SELECT * FROM usuarios WHERE email='$email' LIMIT 1";
+    $result = mysqli_query($con, $check_email_query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $_SESSION['message'] = "El correo ingresado ya esta en uso, inicia sesión o registrate con un correo diferente";
+        header("Location: registro.php");
+        exit(0);
+    } else{}
+
 	$asunto = 'ADMISION';
-	$mensaje = "Nombre: ".$nombre. " " .$apellidomaterno. " " .$apellidopaterno. " Email: " .$email." Telefono: ".$telefono." Username: ".$username." Detalles: ".$detalles."". $_POST['mensaje'];
+	$cuerpo = "Nombre: ".$nombre. " " .$apellidomaterno. " " .$apellidopaterno. " Email: " .$email." Telefono: ".$telefono." Username: ".$username." Detalles: ".$detalles."". $_POST['cuerpo'];
 
 	 $_SESSION['username'] = $username;
+     $headers = "From: admisiones@cepap.edu.mx\r\n";
+            $headers .= "Reply-To: admisiones@cepap.edu.mx\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-	if(mail('admisiones@cepap.edu.mx', $asunto, $mensaje)){
+	if(mail('admisiones@cepap.edu.mx', $asunto, $cuerpo) && mail($email, $asunto, $cuerpo, $headers)){
 	 	echo "Correo enviado";
 	 }
 

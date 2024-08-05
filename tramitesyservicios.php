@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'dbcon.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +17,10 @@
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0" nonce="1tO5xGiO"></script>
 
+<?php include 'whatsapp.php'; ?>   
   <?php include 'menu.php'; ?>
 
   <div class="container-fluid">
@@ -131,9 +138,22 @@
     </div>
 
     <div id="calendario" class="row justify-content-center align-items-center calendario">
-      <div class="col-12 col-md-8 text-center">
-        <h2>CALENDARIO ACADÉMICO</h2>
-        <img src="images/calendario.jpg" alt="">
+      <div class="col-12 col-md-12 text-center">
+        <h2 class="mb-5">CALENDARIO ACADÉMICO</h2>
+        <?php
+        $query = "SELECT * FROM calendario ORDER BY id DESC LIMIT 1";
+        $query_run = mysqli_query($con, $query);
+
+        if (mysqli_num_rows($query_run) > 0) {
+          foreach ($query_run as $registro) {
+        ?>
+            <img style="width: 100%;" src="data:image/jpeg;base64,<?php echo  base64_encode($registro['medio']); ?>" alt="Imagen">
+        <?php
+          }
+        } else {
+          echo "<td colspan='7'><h5> No se encontro ningun registro </h5></td>";
+        }
+        ?>
       </div>
     </div>
 

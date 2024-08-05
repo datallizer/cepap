@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'dbcon.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +17,10 @@
 </head>
 
 <body>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0" nonce="1tO5xGiO"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0" nonce="1tO5xGiO"></script>
+
+<?php include 'whatsapp.php'; ?>   
     <?php include 'menu.php'; ?>
 
     <div class="container-fluid">
@@ -55,121 +61,42 @@
         <div class="row justify-content-evenly align-items-center directoriorowcontacto">
             <div class="col-10">
 
-                <div class="row justify-content-evenly align-items-center " id="directorio">
-                    <div class="col-10 text-center">
+                <div class="row justify-content-start align-items-center " id="directorio">
+                    <div class="col-12 text-center">
                         <h2>DIRECTORIO</h2>
                     </div>
+                    <?php
+                    $query = "SELECT * FROM directorio";
+                    $query_run = mysqli_query($con, $query);
 
-                    <div class="col-10 col-md-5">
+                    if (mysqli_num_rows($query_run) > 0) {
+                        foreach ($query_run as $registro) {
+                    ?>
+                    <div class="col-12 col-md-6">
                         <div class="card mb-3" style="background-color:#3795cc;border:0px;">
                             <div class="row g-0 align-items-center">
-                                <div class="col-md-4">
-                                    <img src="images/israel.jpg" class="img-fluid rounded-start" alt="Israel" style="margin-bottom:0px;">
+                                <div class="col-md-3">
+                                    <img src="data:image/jpeg;base64,<?php echo  base64_encode($registro['medio']); ?>" class="img-fluid rounded-start" alt="Imagen" style="margin-bottom:0px;">
                                 </div>
 
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <div class="card-body">
-                                        <h5 class="card-title"><b>Mtro. Isreal de Luna</b></h5>
-                                        <p class="card-text" style="margin-top:0px;font-size:12px;margin-bottom:10px"><b>Rector</b></p>
-                                        <p class="card-text">israel.deluna@cepap.mx</p>
-                                        <p class="card-text"><small style="color:#ffffff !important;" class="text-muted">449 547 6518</small></p>
+                                        <h5 class="card-title"><b><?= $registro['nombre']; ?></b></h5>
+                                        <p class="card-text" style="margin-top:0px;font-size:12px;margin-bottom:10px"><b><?= $registro['puesto']; ?></b></p>
+                                        <p><a href="mailto:<?= $registro['email']; ?>" class="card-text"><?= $registro['email']; ?></a></p>
+                                        <p><a href="tel:<?= $registro['telefono']; ?>" class="card-text"><small style="color:#ffffff !important;" class="text-muted"><?= $registro['telefono']; ?></small></a></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php
+                        }
+                    } else {
+                        echo "<td colspan='7'><h5> No se encontro ningun registro </h5></td>";
+                    }
+                    ?>
 
-                    <div class="col-10 col-md-5">
-                        <div class="card mb-3" style="background-color:#3795cc;border:0px;">
-                            <div class="row g-0 align-items-center">
-                                <div class="col-md-4">
-                                    <img src="images/juanc.jpg" class="img-fluid rounded-start" alt="Israel" style="margin-bottom:0px;">
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><b>Juan Carlos Valdez</b></h5>
-                                        <p class="card-text" style="margin-top:0px;font-size:12px;margin-bottom:10px"><b>Director Académico</b></p>
-                                        <p class="card-text">juancarlos.valdez@cepap.mx</p>
-                                        <p class="card-text"><small style="color:#ffffff !important;" class="text-muted">449 547 6518</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-10 col-md-5">
-                        <div class="card mb-3" style="background-color:#3795cc;border:0px;">
-                            <div class="row g-0 align-items-center">
-                                <div class="col-md-4">
-                                    <img src="images/sociauno.jpg" class="img-fluid rounded-start" alt="Israel" style="margin-bottom:0px;">
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><b>Dra. María Concepción Franco Alba</b></h5>
-                                        <p class="card-text" style="margin-top:0px;font-size:12px;margin-bottom:10px"><b>Socia Fundadora</b></p>
-                                        <p class="card-text"><small style="color:#ffffff !important;" class="text-muted">449 547 6518</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-10 col-md-5">
-                        <div class="card mb-3" style="background-color:#3795cc;border:0px;">
-                            <div class="row g-0 align-items-center">
-                                <div class="col-md-4">
-                                    <img src="images/sociados.jpg" class="img-fluid rounded-start" alt="Israel" style="margin-bottom:0px;">
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><b>Dra. María del Socorro Vallín Contreras</b></h5>
-                                        <p class="card-text" style="margin-top:0px;font-size:12px;margin-bottom:10px"><b>Socia Fundadora</b></p>
-                                        <p class="card-text"><small style="color:#ffffff !important;" class="text-muted">449 547 6518</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-10 col-md-5">
-                        <div class="card mb-3" style="background-color:#3795cc;border:0px;">
-                            <div class="row g-0 align-items-center">
-                                <div class="col-md-4">
-                                    <img src="images/alice.jpg" class="img-fluid rounded-start" alt="Israel" style="margin-bottom:0px;">
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><b>Lic. Juana Alicia Sánchez Muñoz</b></h5>
-                                        <p class="card-text" style="margin-top:0px;font-size:12px;margin-bottom:10px"><b>DIrectora de Vinculación</b></p>
-                                        <p class="card-text"><small style="color:#ffffff !important;" class="text-muted">449 547 6518</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-10 col-md-5">
-                        <div class="card mb-3" style="background-color:#3795cc;border:0px;">
-                            <div class="row g-0 align-items-center">
-                                <div class="col-md-4">
-                                    <img src="images/angie.jpg" class="img-fluid rounded-start" alt="Israel" style="margin-bottom:0px;">
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><b>Lic. Norma Angélica Medina López</b></h5>
-                                        <p class="card-text" style="margin-top:0px;font-size:12px;margin-bottom:10px"><b>Proyectos Especiales</b></p>
-                                        <p class="card-text">angelica.medina@cepap.mx</p>
-                                        <p class="card-text"><small style="color:#ffffff !important;" class="text-muted">449 547 6518</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>

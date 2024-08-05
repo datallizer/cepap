@@ -1,16 +1,15 @@
 <?php
 session_start();
 require 'dbcon.php';
-$message = isset($_SESSION['message']) ? $_SESSION['message'] : ''; // Obtener el mensaje de la sesión
+$message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
 
 if (!empty($message)) {
-    // HTML y JavaScript para mostrar la alerta...
     echo "<script>
             document.addEventListener('DOMContentLoaded', function() {
                 const message = " . json_encode($message) . ";
                 Swal.fire({
-                    title: 'NOTIFICACIÓN',
-                    text: message,
+                    title: message,
+                    //text: message,
                     icon: 'info',
                     confirmButtonText: 'OK'
                 }).then((result) => {
@@ -20,7 +19,7 @@ if (!empty($message)) {
                 });
             });
         </script>";
-    unset($_SESSION['message']); // Limpiar el mensaje de la sesión
+    unset($_SESSION['message']);
 }
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = mysqli_real_escape_string($con, $_POST['username']);
@@ -76,8 +75,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center loginform">
-            <div class="col-5">
-                <h2>INICIAR SESÍON</h2>
+            <div class="col-11 col-md-4">
+                <h2>INICIAR SESION</h2>
                 <form action="" method="post">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" id="username">
@@ -87,7 +86,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                         <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" id="password">
                         <label for="floatingPassword">Contraseña</label>
                     </div>
-                    <button class="btn btn-primary">Iniciar sesión</button>
+                    <button style="width: 100%;" class="btn btn-primary p-3">Ingresar</button>
                 </form>
             </div>
         </div>
@@ -96,6 +95,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <?php include 'footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>
     <script src="js/js.js"></script>
 </body>
 

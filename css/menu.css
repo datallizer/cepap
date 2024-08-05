@@ -59,4 +59,9 @@
       border-bottom: 1px solid #f3f3f3;
     }
 
+    .loginbtn{
+      margin-top: 20px;
+      background-color: #ececec;
+    }
+
   }

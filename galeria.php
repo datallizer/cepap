@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'dbcon.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +21,8 @@
 <body>
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0" nonce="1tO5xGiO"></script>
+
+  <?php include 'whatsapp.php'; ?>
   <?php include('menu.php'); ?>
 
   <div class="bannergaleria">
@@ -34,36 +40,24 @@
       <div class="row justify-content-center align-items-center">
         <div class="col-10">
           <div class="row justify-content-center align-items-center mb-5">
-            <div data-aos="zoom-in-up" class="galerimg col-6 col-md-3">
-              <a data-fslightbox="gallery" href="images/galeria/1.png"><img loading="lazy" src="images/galeria/1.png"></a>
-            </div>
-            <div data-aos="zoom-in-up" class="galerimg col-6 col-md-3">
-              <a data-fslightbox="gallery" href="images/galeria/2.png"><img src="images/galeria/2.png" loading="lazy"></a>
-            </div>
-            <div data-aos="zoom-in-up" class="galerimg col-6 col-md-3">
-              <a data-fslightbox="gallery" href="images/galeria/3.png"><img src="images/galeria/3.png" loading="lazy"></a>
-            </div>
-            <div data-aos="zoom-in-up" class="galerimg col-6 col-md-3">
-              <a data-fslightbox="gallery" href="images/galeria/4.png"><img src="images/galeria/4.png" loading="lazy"></a>
-            </div>
-            <div data-aos="zoom-in-up" class="galerimg col-6 col-md-6">
-              <a data-fslightbox="gallery" href="images/galeria/5.png"><img src="images/galeria/5.png" loading="lazy"></a>
-            </div>
-            <div data-aos="zoom-in-up" class="galerimg col-6 col-md-6">
-              <a data-fslightbox="gallery" href="images/galeria/6.jpg"><img src="images/galeria/6.jpg" loading="lazy"></a>
-            </div>
-            <div data-aos="zoom-in-up" class="galerimg col-6 col-md-3">
-              <a data-fslightbox="gallery" href="images/galeria/7.png"><img src="images/galeria/7.png" loading="lazy"></a>
-            </div>
-            <div data-aos="zoom-in-up" class="galerimg col-6 col-md-3">
-              <a data-fslightbox="gallery" href="images/galeria/8.jpg"><img src="images/galeria/8.jpg" loading="lazy"></a>
-            </div>
-            <div data-aos="zoom-in-up" class="galerimg col-12 col-md-3">
-              <a data-fslightbox="gallery" href="images/galeria/9.jpg"><img src="images/galeria/9.jpg" loading="lazy"></a>
-            </div>
-            <div data-aos="zoom-in-up" class="galerimg col-12 col-md-3">
-              <a data-fslightbox="gallery" href="images/galeria/10.jpg"><img src="images/galeria/10.jpg" loading="lazy"></a>
-            </div>
+            <?php
+            $query = "SELECT * FROM galeria ORDER BY id DESC";
+            $query_run = mysqli_query($con, $query);
+
+            if (mysqli_num_rows($query_run) > 0) {
+              foreach ($query_run as $registro) {
+            ?>
+                <div data-aos="zoom-in-up" class="galerimg col-12 col-md-3" style="object-fit: cover;">
+                  <a data-fslightbox="gallery" href="data:image/jpeg;base64,<?php echo  base64_encode($registro['medio']); ?>">
+                    <img style="object-fit: cover;height:200px;width:100%;" src="data:image/jpeg;base64,<?php echo  base64_encode($registro['medio']); ?>" loading="lazy">
+                  </a>
+                </div>
+            <?php
+              }
+            } else {
+              echo "No se encontro ningun registro";
+            }
+            ?>
           </div>
         </div>
       </div>

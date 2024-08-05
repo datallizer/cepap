@@ -14,8 +14,9 @@ require 'dbcon.php';
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-12 me-3 me-lg-12">
-            <li class="nav-item dropdown m-1">
-                <a style="background-color:#363636;padding:3px 7px;border-radius:5px;" class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a style="padding:3px 7px;border-radius:5px;" class="btn btn-warning" href="logout.php">Salir <i class="bi bi-box-arrow-right"></i></a>
+            <!-- <li class="nav-item dropdown m-1">
+                <a style="background-color:#363636;padding:3px 7px;border-radius:5px;" class="nav-link dropdown-toggle" id="navbarDropdown" href="logout.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-user fa-fw"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -23,7 +24,7 @@ require 'dbcon.php';
                     <hr class="dropdown-divider" />
                     <li><a class="dropdown-item" href="logout.php">Salir</a></li>
                 </ul>
-            </li>
+            </li> -->
         </ul>
     </nav>
     <div id="layoutSidenav">
@@ -44,8 +45,8 @@ require 'dbcon.php';
                         </a>
                         <div class="collapse" id="collapsePagesFour" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link" href="usuarios.php">Especialidad docencía</a>
-                                <a class="nav-link" href="usuarios.php">Maestría educación</a>
+                                <a class="nav-link" href="especialidaddocencia.php">Especialidad docencía</a>
+                                <a class="nav-link" href="maestriaeducacion.php">Maestría educación</a>
                             </nav>
                         </div>
 
@@ -97,6 +98,22 @@ require 'dbcon.php';
                         <a class="nav-link" href="soporte.php">
                             <div class="sb-nav-link-icon"><i class="bi bi-headset"></i></div>
                             Soporte
+                        </a>
+                        <a class="nav-link" href="directorio.php">
+                            <div class="sb-nav-link-icon"><i class="bi bi-journal-bookmark-fill"></i></div>
+                            Directorio
+                        </a>
+                        <a class="nav-link" href="becas.php">
+                            <div class="sb-nav-link-icon"><i class="bi bi-wallet"></i></div>
+                            Becas
+                        </a>
+                        <a class="nav-link" href="calendario.php">
+                            <div class="sb-nav-link-icon"><i class="bi bi-calendar2-event"></i></div>
+                            Calendario
+                        </a>
+                        <a class="nav-link" href="monitorgaleria.php">
+                            <div class="sb-nav-link-icon"><i class="bi bi-image"></i></div>
+                            Galería
                         </a>
                     </div>
                 </div>

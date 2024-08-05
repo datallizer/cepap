@@ -37,7 +37,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                    <?php include 'message.php'; ?>
+                    
                         <?php
                         if(isset($_GET['id']))
                         {

@@ -52,8 +52,8 @@ if (isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Editar usuarios | Administrador</title>
-    <link rel="stylesheet" href="../css/admin.css">
+    <title>Editar usuarios | CEPAP</title>
+    <link rel="stylesheet" href="css/admin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
@@ -64,7 +64,7 @@ if (isset($_SESSION['username'])) {
         <div id="layoutSidenav_content">
             <div class="container mt-5">
                 <div class="row justify-content-center">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4>EDITAR USUARIO
@@ -109,26 +109,12 @@ if (isset($_SESSION['username'])) {
 
                                                 <div class="col-7 mb-3">
                                                     <select class="form-select" name="rol_id" id="rol_id" autocomplete="off" required>
-                                                        <option selected disabled><?php
-                                                                                    if ($registro['rol_id'] === "1") {
-                                                                                        echo "Administrador";
-                                                                                    } else if ($registro['rol_id'] === "2") {
-                                                                                        echo "Control escolar";
-                                                                                    } else if ($registro['rol_id'] === "3") {
-                                                                                        echo "Alumno maestría en educacion";
-                                                                                    } else if ($registro['rol_id'] === "4") {
-                                                                                        echo "Alumno especialidad en docencia";
-                                                                                    } else if ($registro['rol_id'] === "5") {
-                                                                                        echo "Profesor";
-                                                                                    } else {
-                                                                                    }
-                                                                                    ?>
-                                                        </option>
-                                                        <option value="1">Administrador</option>
-                                                        <option value="2">Control escolar</option>
-                                                        <option value="3">Alumno maestría en educacion</option>
-                                                        <option value="4">Alumno educacion en docencia</option>
-                                                        <option value="5">Docente</option>
+                                                        <option disabled>Selecciona una opcion</option>
+                                                        <option value="1" <?= $registro['rol_id'] == 1 ? 'selected' : ''; ?>>Administrador</option>
+                                                        <option value="2" <?= $registro['rol_id'] == 2 ? 'selected' : ''; ?>>Control escolar</option>
+                                                        <option value="3" <?= $registro['rol_id'] == 3 ? 'selected' : ''; ?>>Alumno maestría en educacion</option>
+                                                        <option value="4" <?= $registro['rol_id'] == 4 ? 'selected' : ''; ?>>Alumno educacion en docencia</option>
+                                                        <option value="5" <?= $registro['rol_id'] == 5 ? 'selected' : ''; ?>>Docente</option>
                                                     </select>
                                                 </div>
 
